@@ -1,0 +1,33 @@
+<br><br><br>
+<div>
+	{{#link-to "categories" class="btn waves-effect waves-teal"}}Back To List{{/link-to}}
+	<a class='dropdown-button btn' href='#' data-constrainwidth="false" data-activates='dropdown1'>Choose the Category</a>
+	<ul class="collection with-header">
+	<li class="collection-header"><h4>{{model.category.title}}</h4></li>
+	<input type="hidden" value="{{model.category.id}}" id="category_id"/>
+	{{#each todoList as |todo|}}
+			{{log todo}}
+			{{#if todo.isdone}}
+				<li class="collection-item highlight" style="text-decoration:line-through">
+				<span class="title">{{todo.title}}</span>
+				<a href="#!" class="secondary-content"><i class="material-icons" {{action "deleteTodo" todo}}>delete</i></a>
+			</li>
+			{{else}}
+				<li class="collection-item highlight">
+				<span class="title">{{todo.title}}</span>
+				<a href="#!" class="secondary-content"><i class="material-icons"  {{action "completeTodo" todo}}>done</i></a>
+			</li>
+			{{/if}}
+		
+	{{/each}}
+     <li class="collection-item highlight"><div class="input-field col s12">{{input type='text' class="validate" id="newTask" maxlength="200" insert-newline='addTodo'}}<label for="newTask">Add Task</label></div></li>
+	</ul>
+</div>
+
+
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+  	{{#each model.categories as | cat|}}
+  		<li>{{#link-to "category.todos" cat}}{{cat.title}}{{/link-to}}</li>
+    {{/each}}
+  </ul>

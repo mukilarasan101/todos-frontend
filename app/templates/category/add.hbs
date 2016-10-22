@@ -1,0 +1,23 @@
+<br><br><br>
+<div>
+{{#link-to "categories" class="btn waves-effect waves-teal"}}Back To List{{/link-to}}
+	<div class="row">
+		<form class="col s12">
+			<div class="row">
+				<div class="input-field col s6">
+					<input id="category_id" type="hidden">
+					<input id="title" type="text" maxlength="200">
+					<label for="title" class="">Title</label>
+				</div>
+				<div class="input-field col s12">
+					<textarea id="descriptionArea" class="materialize-textarea" maxlength="4000"></textarea>
+					<label for="descriptionArea">Description</label>
+				</div>
+				<div class="input-field col s12 center-align">
+					<button  class="center-align btn waves-effect waves-teal" {{action "resetData"}}>Reset</button>
+					<button  class="center-align btn waves-effect waves-teal" {{action "saveRecords"}}>Save</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
