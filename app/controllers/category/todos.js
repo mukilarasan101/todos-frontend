@@ -27,7 +27,7 @@ export default Ember.Controller.extend({
 
         	var thisObj = this;
             var post = this.store.createRecord('todo', param);
-            post.save().then((savedRecord) => {
+            post.save({adapterOptions: { category_id : category_id}}).then((savedRecord) => {
                 $("#newTask").val("");
                 Materialize.toast('Record Added Successfully', 1000); // 1000 is the duration of the toast
             }).catch((xhr) => {
